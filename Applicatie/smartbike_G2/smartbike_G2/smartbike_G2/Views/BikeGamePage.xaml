@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="smartbike_G2.Views.BikeGamePage"
+             NavigationPage.HasBackButton="false"
+             Shell.NavBarIsVisible="True"
+             BackgroundColor="{StaticResource Background}"
+             Title="BikeGame">
+
+    <ContentPage.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="TextColor" Value="{StaticResource DefaultTextColor}"/>
+            <Setter Property="FontFamily" Value="NunitoRegular"/>
+            <Setter Property="FontSize" Value="{StaticResource DefaultFontSize}"/>
+        </Style>
+        <Style TargetType="{x:Type ListView}">
+            <Setter Property="SeparatorColor" Value="Transparent"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <Shell.TitleView>
+        <Label Text="Game" TextColor="#65C68E" BackgroundColor="#111726" Padding="0" Margin="0" FontFamily="NunitoRegular" FontSize="24" VerticalTextAlignment="Center"/>
+    </Shell.TitleView>
+
+    <StackLayout HeightRequest="2000">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="700"/>
+            </Grid.RowDefinitions>
+            
+            <WebView Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="7" IsEnabled="False"  x:Name="wvGame" />
+
+            <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="7" x:Name="startMenuScreen" IsVisible="False" BackgroundColor="#AA000000">
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Kies een moeilijkheidsgraad" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Margin="0,60,0,0"/>
+                    <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#65C68E" Margin="0,42,0,42" CornerRadius="25" HasShadow="True" Padding="0">
+                        <Frame BackgroundColor="#111726" Margin="2" CornerRadius="23" HasShadow="False" Padding="0">
+                            <StackLayout>
+                                <Grid Padding="32" RowSpacing="4">
+                                    
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="90"/>
+                                        <RowDefinition Height="20"/>
+                                        <RowDefinition Height="1*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Button Grid.Row="0" Grid.Column="0"  x:Name="easy" BackgroundColor="#111726"  BorderColor="#65C68E" BorderWidth="4" CornerRadius="30" Text="Makkelijk" FontFamily="NunitoSemiBold" FontSize="32" MinimumHeightRequest="40" Margin="0,8,0,0" Clicked="Easy_Clicked"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Text="Wil je een rustig, maar competitief ritje maken? Dan is deze setting ideaal voor jou."/>
+                                   
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </Frame>
+
+                    <Frame Grid.Row="0" Grid.Column="3" BackgroundColor="#65C68E" Margin="0,42,0,42" CornerRadius="25" HasShadow="True" Padding="0">
+                        <Frame BackgroundColor="#111726" Margin="2" CornerRadius="23" HasShadow="False" Padding="0">
+                            <StackLayout>
+                                <Grid Padding="32" RowSpacing="4">
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="90"/>
+                                        <RowDefinition Height="20"/>
+                                        <RowDefinition Height="1*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Button Grid.Row="0" Grid.Column="0"  x:Name="intermediate" BackgroundColor="#111726"  BorderColor="#65C68E" BorderWidth="4" CornerRadius="30" Text="Gemiddeld" FontFamily="NunitoSemiBold" FontSize="32" MinimumHeightRequest="40" Margin="0,8,0,0" Clicked="Intermediate_Clicked"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Text="Om op te warmen is deze setting ideaal. De tegenstanders zijn iets sterker, maar misschien kan jij ze de baas."/>
+
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </Frame>
+
+                    <Frame Grid.Row="0" Grid.Column="5" BackgroundColor="#65C68E" Margin="0,42,0,42" CornerRadius="25" HasShadow="True" Padding="0">
+                        <Frame BackgroundColor="#111726" Margin="2" CornerRadius="23" HasShadow="False" Padding="0">
+                            <StackLayout>
+                                <Grid Padding="32" RowSpacing="4">
+                                    
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="90"/>
+                                        <RowDefinition Height="20"/>
+                                        <RowDefinition Height="1*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Button Grid.Row="0" Grid.Column="0"  x:Name="hard" BackgroundColor="#111726"  BorderColor="#65C68E" BorderWidth="4" CornerRadius="30" Text="Moeilijk" FontFamily="NunitoSemiBold" FontSize="32" MinimumHeightRequest="40" Margin="0,8,0,0" Clicked="Hard_Clicked"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Text="Voel je je klaar voor de strijd? Pas op, want zelfs als je koploopt zullen je tegenstanders niet opgeven. Doe je best!"/>
+
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+
+            <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="7" x:Name="finishScreen" IsVisible="False" BackgroundColor="#AA000000">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="450"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#65C68E" Margin="0,42,0,42" CornerRadius="25" HasShadow="True" Padding="0">
+                        <Frame BackgroundColor="#111726" Margin="2" CornerRadius="23" HasShadow="False" Padding="0">
+                            <StackLayout>
+                                <Grid Padding="32" RowSpacing="4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="300"/>
+                                        <ColumnDefinition Width="86"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="20"/>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="1.5*"/>
+                                    </Grid.RowDefinitions>
+                                    
+                                    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="🏆 Goed gedaan! 🏆" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  x:Name="lblPosition" Text="Je kwam eerste!" FontSize="30" HorizontalOptions="Center"/>
+
+                                    <Label Grid.Row="3" Grid.Column="0" Text="Gem. snelheid (km/u):" />
+                                    <Label Grid.Row="3" Grid.Column="1" x:Name="lblEndSpeed" Text="..." HorizontalTextAlignment="End"/>
+
+                                    <Label Grid.Row="4" Grid.Column="0" Text="Aantal calorieën:"/>
+                                    <Label Grid.Row="4" Grid.Column="1" x:Name="lblEndCalories" Text="..." HorizontalTextAlignment="End"/>
+
+
+                                    <Grid Grid.Row="5" Grid.ColumnSpan="2" ColumnSpacing="16">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Button Grid.Row="0" Grid.Column="0" x:Name="retry" BackgroundColor="#111726"  BorderColor="#65C68E" BorderWidth="4" CornerRadius="30" Text="Opnieuw" FontFamily="NunitoSemiBold" FontSize="32" MinimumHeightRequest="40" Margin="0,8,0,0" Clicked="Retry_Clicked"/>
+                                        <Button Grid.Row="0" Grid.Column="1" x:Name="stop" BackgroundColor="#111726"  BorderColor="#65C68E" BorderWidth="4" CornerRadius="30" Text="Stoppen" FontFamily="NunitoSemiBold" FontSize="32" MinimumHeightRequest="40" Margin="0,8,0,0" Clicked="Stop_Clicked"/>
+                                    </Grid>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+
+        </Grid>
+    </StackLayout>
+</ContentPage>

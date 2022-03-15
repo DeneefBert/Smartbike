@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="smartbike_G2.Views.VideoListPage"
+             NavigationPage.HasBackButton="false"
+             Shell.NavBarIsVisible="True"
+             BackgroundColor="{StaticResource Background}"
+             Title="Videos">
+
+    <ContentPage.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="TextColor" Value="{StaticResource DefaultTextColor}"/>
+            <Setter Property="FontFamily" Value="NunitoRegular"/>
+            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            <Setter Property="Margin" Value="0"/>
+        </Style>
+        <Style TargetType="{x:Type ListView}">
+            <Setter Property="SeparatorColor" Value="Transparent"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="STOP SESSIE"
+                 Order="Primary"
+                 Priority="0"
+                 x:Name="EndSessionButton"
+                 Clicked="EndSessionButton_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <Shell.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="1" Text="Videos" TextColor="#65C68E" BackgroundColor="#111726" Padding="0" Margin="0" FontFamily="NunitoRegular" FontSize="24" VerticalTextAlignment="Center"/>
+            <Label Grid.Column="2"  x:Name="lblMinSpeed" TextColor="#65C68E" BackgroundColor="#111726" Padding="0" FontFamily="NunitoRegular" FontSize="20"/>
+            <Label Grid.Column="3"  x:Name="lblData" TextColor="#65C68E" BackgroundColor="#111726" Padding="0" FontFamily="NunitoRegular" FontSize="20"/>
+        </Grid>
+    </Shell.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout HeightRequest="2000">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--left side-->
+
+                    <Grid Grid.Column="1" x:Name="leftSideGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="4*"/>
+                            <RowDefinition Height="8"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label x:Name="lblTitle" Grid.Row="3" Text="Video title" FontSize="24" Margin="0" FontFamily="NunitoSemiBold" VerticalOptions="Start"/>
+                        <Grid Grid.Row="5" ColumnSpacing="10" x:Name="InfoStartVideo" VerticalOptions="Start" IsVisible="True">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="28"/>
+                                <RowDefinition Height="55"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Grid.Column="0" Source="icon_attention.png" VerticalOptions="Center"/>
+                            <Label Grid.Row="0" Grid.Column="1" Text="Klik op de video om te beginnen" FontSize="20" Margin="0" VerticalOptions="Center" TextColor="#65C68E"/>
+                            <Label Grid.Row="1" Grid.Column="1" Text="Fiets sneller dan de aangegeven minimum snelheid. Als je trager fietst, stopt de video tot je weer versnelt!" FontSize="18" Margin="0" VerticalOptions="Center"/>
+                        </Grid>
+
+                        <!--main video-->
+                        <WebView Grid.Row="1" x:Name="mmVideo" HeightRequest="2000"/>
+                        
+                        <StackLayout Grid.Row="1" VerticalOptions="End" BackgroundColor="#99000000" HeightRequest="40" x:Name="PlayerBar">
+                            <ImageButton x:Name="imgFullscreen" VerticalOptions="Center" Padding="4" BackgroundColor="Transparent" HorizontalOptions="End" Clicked="ImgFullscreen_Clicked"/>
+                        </StackLayout>
+
+                    </Grid>
+
+                    <!--right side-->
+
+                    <Grid x:Name="videoOptions" Grid.Column="3" Margin="0,20,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                        <Image Grid.Row="0" x:Name="filterIcon" Grid.Column="0" Margin="0, 0, 0, 0"/>
+                        <Picker Grid.Row="0" Grid.Column="1" x:Name="pickerGenre" Title="Verander categorie" FontSize="22" TitleColor="#65C68E" TextColor="{StaticResource DefaultTextColor}" BackgroundColor="{StaticResource Background}" FontFamily="NunitoRegular" VerticalOptions="Start" SelectedIndexChanged="PickerGenre_SelectedIndexChanged"/>
+                        </Grid>
+
+                    <!--video options-->
+
+                        <ListView x:Name="lvwVideos" Grid.Row="1" RowHeight="222" SeparatorColor="Transparent" ItemSelected="LvwVideos_ItemSelected" VerticalScrollBarVisibility="Never">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid Margin="0,0,0,20">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="42"/>
+                                                <RowDefinition Height="150"/>
+                                            </Grid.RowDefinitions>
+                                            <Label Grid.Row="0" Text="{Binding Title}" FontSize="16" VerticalOptions="End"/>
+                                            <Image Grid.Row="1" Source="{Binding ThumbnailUrl}" Aspect="AspectFit"/>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+
+                <!--eindscherm-->
+
+                <StackLayout Grid.Column="0" Grid.ColumnSpan="5" AbsoluteLayout.LayoutBounds="0, 1, 1, 1" AbsoluteLayout.LayoutFlags="All" x:Name="EndSessionScreen" IsVisible="False" BackgroundColor="#AA000000" >
+                    <Grid VerticalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="450"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#65C68E" Margin="0,42,0,42" CornerRadius="25" HasShadow="True" Padding="0">
+                            <Frame BackgroundColor="#111726" Margin="2" CornerRadius="23" HasShadow="False" Padding="0">
+                                <StackLayout>
+                                    <Grid Padding="32" RowSpacing="4">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="300"/>
+                                            <ColumnDefinition Width="86"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="70"/>
+                                            <RowDefinition Height="45"/>
+                                            <RowDefinition Height="45"/>
+                                            <RowDefinition Height="45"/>
+                                            <RowDefinition Height="45"/>
+                                            <RowDefinition Height="55"/>
+                                            <RowDefinition Height="70"/>
+                                            <RowDefinition Height="70"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="🏆 Goed gedaan! 🏆" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
+                                        <Label Grid.Row="1" Grid.Column="0" Text="Aantal kilometer:"/>
+                                        <Label Grid.Row="1" Grid.Column="1" x:Name="lblEndDistance" Text="..." HorizontalTextAlignment="End"/>
+                                        <Label Grid.Row="2" Grid.Column="0" Text="Aantal calorieën:"/>
+                                        <Label Grid.Row="2" Grid.Column="1" x:Name="lblEndCalories" Text="..." HorizontalTextAlignment="End"/>
+                                        <Label Grid.Row="3" Grid.Column="0" Text="Gem. snelheid (km/u):" />
+                                        <Label Grid.Row="3" Grid.Column="1" x:Name="lblEndSpeed" Text="..." HorizontalTextAlignment="End"/>
+                                        <Label Grid.Row="4" Grid.Column="0" Text="Score:"/>
+                                        <Label Grid.Row="4" Grid.Column="1" x:Name="lblEndScore" Text="..." HorizontalTextAlignment="End"/>
+                                        <Label Grid.Row="5" Grid.ColumnSpan="2" Text="Naam (optioneel):" VerticalOptions="End"/>
+                                        <Frame Grid.Row="6" Grid.ColumnSpan="2" BorderColor="#65C68E" BackgroundColor="Transparent" Padding="0" CornerRadius="10" Margin="0,8,0,8" VerticalOptions="Start">
+                                            <Entry Grid.Row="6" Grid.ColumnSpan="2" x:Name="EntryUsername" Placeholder="Gebruikersnaam" PlaceholderColor="#AAB2BF" TextColor="White" FontSize="26" FontFamily="NunitoRegular" Margin="4,0,4,0"/>
+                                        </Frame>
+                                        <Grid Grid.Row="7" Grid.ColumnSpan="2" ColumnSpacing="16">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="1*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Button Grid.Row="0" Grid.Column="0" x:Name="SaveButton" BackgroundColor="#111726"  BorderColor="#65C68E" BorderWidth="4" CornerRadius="30" Text="Opslaan" FontFamily="NunitoSemiBold" FontSize="32" MinimumHeightRequest="40" Margin="0,8,0,0" Clicked="SaveButton_Clicked"/>
+                                            <Button Grid.Row="0" Grid.Column="1" x:Name="MenuButton" BackgroundColor="#111726"  BorderColor="#65C68E" BorderWidth="4" CornerRadius="30" Text="Menu" FontFamily="NunitoSemiBold" FontSize="32" MinimumHeightRequest="40" Margin="0,8,0,0" Clicked="MenuButton_Clicked"/>
+                                        </Grid>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

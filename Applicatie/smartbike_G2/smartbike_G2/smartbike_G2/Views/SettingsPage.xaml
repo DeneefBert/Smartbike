@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="smartbike_G2.Views.SettingsPage"
+             NavigationPage.HasBackButton="false"
+             Title="Info"
+             Shell.NavBarIsVisible="True"
+             BackgroundColor="{StaticResource Background}">
+
+    <ContentPage.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="TextColor" Value="{StaticResource DefaultTextColor}"/>
+            <Setter Property="FontFamily" Value="NunitoRegular"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
+        <Style TargetType="{x:Type ListView}">
+            <Setter Property="SeparatorColor" Value="Transparent"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <Shell.TitleView>
+        <Label Text="Info" TextColor="#65C68E" BackgroundColor="#111726" Padding="0" Margin="0" FontFamily="NunitoRegular" FontSize="24" VerticalTextAlignment="Center"/>
+    </Shell.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout>
+        <Grid Margin="32,32,32,32" RowSpacing="16" ColumnSpacing="16" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="48"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="65"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="48"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Row="0" Grid.Column="0" x:Name="imgAbout"/>
+            <Label Grid.Row="0" Grid.Column="1" Text="Over ons" FontSize="32" FontFamily="NunitoSemiBold"/>
+            <Label Grid.Row="1" Grid.Column="1" x:Name="lblAboutUsText"/>
+            <Image Grid.Row="2" Grid.Column="0" x:Name="imgContact"/>
+            <Label Grid.Row="2" Grid.Column="1" Text="Contact" FontSize="32" FontFamily="NunitoSemiBold"/>
+            <Grid Grid.Row="3" Grid.Column="1" ColumnSpacing="12" RowSpacing="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="24"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="24"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Grid.Column="0" x:Name="imgPhone"/>
+                <Label Grid.Row="0" Grid.Column="1" x:Name="lblPhone" VerticalOptions="Center"/>
+                <Image Grid.Row="1" Grid.Column="0" x:Name="imgSite"/>
+                <Label Grid.Row="1" Grid.Column="1" x:Name="lblSite" VerticalOptions="Center"/>
+                <Image Grid.Row="0" Grid.Column="2" x:Name="imgMap"/>
+                <Label Grid.Row="0" Grid.Column="3" x:Name="lblMap" VerticalOptions="Center"/>
+                <Image Grid.Row="1" Grid.Column="2" x:Name="imgMail"/>
+                <Label Grid.Row="1" Grid.Column="3" x:Name="lblMail" VerticalOptions="Center"/>
+            </Grid>
+            <Grid Grid.Row="4" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Row="0" Grid.Column="0" x:Name="imgSportEnBewegen" HorizontalOptions="Center" VerticalOptions="End"/>
+                <Image Grid.Row="0" Grid.Column="1" x:Name="imgHowest" HorizontalOptions="Center" VerticalOptions="End"/>
+                <Image Grid.Row="0" Grid.Column="2" x:Name="imgMCT" HorizontalOptions="Center" VerticalOptions="End"/>
+            </Grid>
+        </Grid>
+    </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

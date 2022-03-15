@@ -1,0 +1,136 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Videos\**" />
+    <EmbeddedResource Remove="Videos\**" />
+    <None Remove="Videos\**" />
+    <None Remove="Resources\Fonts\Nunito-Bold.ttf" />
+    <None Remove="Resources\Fonts\Nunito-Light.ttf" />
+    <None Remove="Resources\Fonts\Nunito-Medium.ttf" />
+    <None Remove="Resources\Fonts\Nunito-Regular.ttf" />
+    <None Remove="Resources\Fonts\Nunito-SemiBold.ttf" />
+    <None Remove="Resources\logo_mct.png" />
+    <None Remove="Resources\logo_sport_en_bewegen.png" />
+    <None Remove="Resources\icon_over.png" />
+    <None Remove="Resources\logo_howest.png" />
+    <None Remove="Resources\icon_attention.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Fonts\NunitoRegular.ttf" />
+    <None Remove="Resources\Fonts\RoundsBlack.otf" />
+    <None Remove="Resources\Howest_hogeschool_logo_RGB_WIT.png" />
+    <None Remove="Resources\Howest_logo_white.png" />
+    <None Remove="Resources\icon_contact.png" />
+    <None Remove="Resources\icon_feed.png" />
+    <None Remove="Resources\icon_filter.png" />
+    <None Remove="Resources\icon_filter_green.png" />
+    <None Remove="Resources\icon_fullscreen.png" />
+    <None Remove="Resources\icon_game.png" />
+    <None Remove="Resources\icon_game_black.png" />
+    <None Remove="Resources\icon_home.png" />
+    <None Remove="Resources\icon_home_selected.png" />
+    <None Remove="Resources\icon_language.png" />
+    <None Remove="Resources\icon_mail.png" />
+    <None Remove="Resources\icon_map.png" />
+    <None Remove="Resources\icon_menu.png" />
+    <None Remove="Resources\icon_music.png" />
+    <None Remove="Resources\icon_music_black.png" />
+    <None Remove="Resources\icon_music_selected.png" />
+    <None Remove="Resources\icon_phone.png" />
+    <None Remove="Resources\icon_phonenumber.png" />
+    <None Remove="Resources\icon_settings.png" />
+    <None Remove="Resources\icon_settings_arrow.png" />
+    <None Remove="Resources\icon_settings_selected.png" />
+    <None Remove="Resources\icon_site.png" />
+    <None Remove="Resources\icon_statistics.png" />
+    <None Remove="Resources\icon_statistics_selected.png" />
+    <None Remove="Resources\icon_videos.png" />
+    <None Remove="Resources\icon_videos_black.png" />
+    <None Remove="Resources\icon_videos_selected.png" />
+    <None Remove="Resources\xamarin_logo.png" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Resource Include="Resources\icon_phone.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Howest_hogeschool_logo_RGB_WIT.png" />
+    <EmbeddedResource Include="Resources\Howest_logo_white.png" />
+    <EmbeddedResource Include="Resources\icon_filter.png" />
+    <EmbeddedResource Include="Resources\icon_filter_green.png" />
+    <EmbeddedResource Include="Resources\icon_game.png" />
+    <EmbeddedResource Include="Resources\icon_game_black.png" />
+    <EmbeddedResource Include="Resources\icon_mail.png" />
+    <EmbeddedResource Include="Resources\icon_map.png" />
+    <EmbeddedResource Include="Resources\icon_music_black.png" />
+    <EmbeddedResource Include="Resources\icon_contact.png" />
+    <EmbeddedResource Include="Resources\icon_feed.png" />
+    <EmbeddedResource Include="Resources\icon_fullscreen.png" />
+    <EmbeddedResource Include="Resources\icon_home.png" />
+    <EmbeddedResource Include="Resources\icon_home_selected.png" />
+    <EmbeddedResource Include="Resources\icon_language.png" />
+    <EmbeddedResource Include="Resources\icon_menu.png" />
+    <EmbeddedResource Include="Resources\icon_music.png" />
+    <EmbeddedResource Include="Resources\icon_music_selected.png" />
+    <EmbeddedResource Include="Resources\icon_phonenumber.png" />
+    <EmbeddedResource Include="Resources\icon_settings.png" />
+    <EmbeddedResource Include="Resources\icon_settings_arrow.png" />
+    <EmbeddedResource Include="Resources\icon_settings_selected.png" />
+    <EmbeddedResource Include="Resources\icon_site.png" />
+    <EmbeddedResource Include="Resources\icon_statistics.png" />
+    <EmbeddedResource Include="Resources\icon_statistics_selected.png" />
+    <EmbeddedResource Include="Resources\icon_videos.png" />
+    <EmbeddedResource Include="Resources\icon_videos_selected.png" />
+    <EmbeddedResource Include="Resources\icon_videos_black.png" />
+    <EmbeddedResource Include="Resources\xamarin_logo.png" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito-Light.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito-Medium.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito-SemiBold.ttf" />
+    <EmbeddedResource Include="Resources\logo_mct.png" />
+    <EmbeddedResource Include="Resources\logo_sport_en_bewegen.png" />
+    <EmbeddedResource Include="Resources\icon_over.png" />
+    <EmbeddedResource Include="Resources\logo_howest.png" />
+    <EmbeddedResource Include="Resources\icon_attention.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Plugin.BLE" Version="2.1.2" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\BikeGamePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\GamePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MusicListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RunGamePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\StatisticsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\VideoListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

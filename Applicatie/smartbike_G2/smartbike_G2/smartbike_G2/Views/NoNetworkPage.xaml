@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="smartbike_G2.Views.NoNetworkPage"
+    BackgroundColor="{StaticResource Background}"
+    Shell.NavBarIsVisible="False"
+    NavigationPage.HasBackButton="false"
+    Title="Geen internetverbinding">
+
+     <ContentPage.Resources>
+        <Style TargetType="{x:Type Label}" x:Key="TitleStyle">
+                    <Setter Property="TextColor" Value="White" />
+                    <Setter Property="VerticalOptions" Value="Center" />
+                    <Setter Property="HorizontalOptions" Value="Center" />
+                    <Setter Property="FontFamily" Value="NunitoSemiBold" />
+                    <Setter Property="FontSize" Value="30" />
+                </Style>
+                <Style TargetType="{x:Type Label}" x:Key="TextStyle">
+                    <Setter Property="TextColor" Value="White" />
+                    <Setter Property="VerticalOptions" Value="Center" />
+                    <Setter Property="HorizontalOptions" Value="Center" />
+                    <Setter Property="HorizontalTextAlignment" Value="Center" />
+                    <Setter Property="FontFamily" Value="NunitoRegular" />
+                    <Setter Property="FontSize" Value="22" />
+                </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="1" Text="Geen internetverbinding" Style="{StaticResource TitleStyle}"/>
+                <Label Grid.Row="2" Text="Je bent niet verbonden met het internet." Style="{StaticResource TextStyle}"/>
+                <Label Grid.Row="3" Text="Zorg ervoor dat WiFi aan staat, Vliegtuig Modus af is en probeer opnieuw." Style="{StaticResource TextStyle}"/>
+            </Grid>
+    </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

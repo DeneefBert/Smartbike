@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.smartbike_g2">
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
+	<application android:label="smartbike_G2.Android" android:theme="@style/MainTheme" android:hardwareAccelerated="true"></application>
+	1 <uses-permission android:name="android.permission.BLUETOOTH" />
+	2 <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+	3 <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />
+	4 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	5 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	6 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /><uses-feature android:name="android.hardware.bluetooth_le" android:required="true" /><uses-feature android:name="android.hardware.bluetooth_le" android:required="true" /></manifest>

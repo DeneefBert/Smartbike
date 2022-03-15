@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="smartbike_G2.Views.GamePage"
+             NavigationPage.HasBackButton="false"
+             Shell.NavBarIsVisible="True"
+             BackgroundColor="{StaticResource Background}"
+             Title="Game">
+    
+    <ContentPage.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="TextColor" Value="{StaticResource DefaultTextColor}"/>
+            <Setter Property="FontFamily" Value="NunitoLight"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+        <Style TargetType="{x:Type ListView}">
+            <Setter Property="SeparatorColor" Value="Transparent"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <Shell.TitleView>
+        <Label Text="Game" TextColor="#65C68E" BackgroundColor="#111726" Padding="0" Margin="0" FontFamily="NunitoRegular" FontSize="24" VerticalTextAlignment="Center"/>
+    </Shell.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="450"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Frame Grid.Row="1" Grid.Column="1" CornerRadius="10" BorderColor="#65C68E" BackgroundColor="#111726">
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="200"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="60"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0" Grid.ColumnSpan="4" HorizontalTextAlignment="Center" HorizontalOptions="Center" Text="Vang dieren" FontSize="30" FontFamily="NunitoRegular"/>
+
+                            <Frame Grid.Row="1" Grid.ColumnSpan="4" BackgroundColor="#65C68E"/>
+
+                            <Label Grid.Row="3" Grid.Column="1" Text="-"/>
+                            <Label Grid.Row="3" Grid.Column="2" x:Name="lblRule1"/>
+
+                            <Label Grid.Row="5" Grid.Column="1" Text="-"/>
+                            <Label Grid.Row="5" Grid.Column="2" x:Name="lblRule2"/>
+
+                            <Label Grid.Row="7" Grid.Column="1" Text="-"/>
+                            <Label Grid.Row="7" Grid.Column="2" x:Name="lblRule3"/>
+
+                            <Button Grid.Row="9" Grid.ColumnSpan="4" HorizontalOptions="Center" x:Name="btnRun" BackgroundColor="#111726"  BorderColor="#65C68E" BorderWidth="3" CornerRadius="30" Text="Speel game" FontFamily="NunitoSemiBold" FontSize="25" WidthRequest="230" Clicked="BtnRun_Clicked"/>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Row="1" Grid.Column="3" CornerRadius="10" BorderColor="#65C68E" BackgroundColor="#111726">
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="200"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="60"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0" Grid.ColumnSpan="4" HorizontalTextAlignment="Center" HorizontalOptions="Center" Text="Fietsrace" FontSize="30" FontFamily="NunitoRegular"/>
+
+                            <Frame Grid.Row="1" Grid.ColumnSpan="4" BackgroundColor="#65C68E"/>
+
+                            <Label Grid.Row="3" Grid.Column="1" Text="-"/>
+                            <Label Grid.Row="3" Grid.Column="2" x:Name="lblRule4"/>
+
+                            <Label Grid.Row="5" Grid.Column="1" Text="-"/>
+                            <Label Grid.Row="5" Grid.Column="2" x:Name="lblRule5"/>
+
+                            <Label Grid.Row="7" Grid.Column="1" Text="-"/>
+                            <Label Grid.Row="7" Grid.Column="2" x:Name="lblRule6"/>
+
+                            <Button Grid.Row="9" Grid.ColumnSpan="4" HorizontalOptions="Center" x:Name="btnBike" BackgroundColor="#111726"  BorderColor="#65C68E" BorderWidth="3" CornerRadius="30" Text="Speel game" FontFamily="NunitoSemiBold" FontSize="25" WidthRequest="230" Clicked="BtnBike_Clicked"/>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

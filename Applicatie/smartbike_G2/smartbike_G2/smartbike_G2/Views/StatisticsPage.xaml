@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="smartbike_G2.Views.StatisticsPage"
+             Shell.NavBarIsVisible="True"
+             Shell.FlyoutItemIsVisible="True"
+             BackgroundColor="{StaticResource Background}"
+             Title="Top Scores">
+
+    <ContentPage.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="TextColor" Value="{StaticResource DefaultTextColor}"/>
+            <Setter Property="FontFamily" Value="NunitoRegular"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="BackgroundColor" Value="#4D5460"/>
+            <Setter Property="HorizontalOptions" Value="Fill"/>
+            <Setter Property="Padding" Value="10,6,6,6"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <Shell.TitleView>
+        <Label Text="Top Scores" TextColor="#65C68E" BackgroundColor="#111726" Padding="0" Margin="0" FontFamily="NunitoRegular" FontSize="24" VerticalTextAlignment="Center"/>
+    </Shell.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Margin="24,12,24,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="160"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Text="Top scores" BackgroundColor="Transparent" Padding="0" FontFamily="NunitoSemiBold" FontSize="26"/>
+                <Image Grid.Row="0" Grid.Column="1" x:Name="filterIcon" Margin="5, 0, 0, 0"/>
+                <Picker Grid.Row="0" Grid.Column="2" IsVisible="True" BackgroundColor="{StaticResource Background}" x:Name="pickerStatistics" Title="" TextColor="White" SelectedIndexChanged="PickerStatistics_SelectedIndexChanged" TitleColor="Black" Margin="0" FontFamily="NunitoRegular" FontSize="26" HorizontalTextAlignment="End">
+                <Picker.Items>
+                    <x:String>Vandaag</x:String>
+                    <x:String>Deze maand</x:String>
+                    <x:String>Altijd</x:String>
+                </Picker.Items>
+                </Picker>
+            </Grid>
+            <Frame CornerRadius="5" Margin="24,0,24,0" Padding="0" BackgroundColor="{StaticResource Background}" HasShadow="True">
+                 <ListView x:Name="lvwScores" RowHeight="48" HeightRequest="49">
+                    <ListView.Header>
+                        <Grid BackgroundColor="{StaticResource Background}" ColumnSpacing="2" RowSpacing="0" Margin="0,0,0,2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="65" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="48"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Text="Nr." Grid.Column="0" HorizontalTextAlignment="Center" Padding="2,2,2,2"/>
+                            <Label Text="Naam" Grid.Column="1"/>
+                            <Label Text="Tijd (min)" Grid.Column="2"/>
+                            <Label Text="Afstand (km)" Grid.Column="3"/>
+                            <Label Text="Score" Grid.Column="4"/>
+                        </Grid>
+                    </ListView.Header>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid BackgroundColor="{StaticResource Background}" ColumnSpacing="2" RowSpacing="0" Margin="0" Padding="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="65" />
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="1*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text ="{Binding Number}" HorizontalTextAlignment="Center" Padding="2,2,2,2" FontFamily="NunitoLight"></Label>
+                                    <Label Grid.Column="1" Text ="{Binding Name}" FontFamily="NunitoLight"></Label>
+                                    <Label Grid.Column="2" Text ="{Binding Time, StringFormat='{0:0}'}" FontFamily="NunitoLight"></Label>
+                                    <Label Grid.Column="3" Text ="{Binding Distance, StringFormat='{0:0.##}'}" FontFamily="NunitoLight"></Label>
+                                    <Label Grid.Column="4" Text ="{Binding Score, StringFormat='{0:0}'}" FontFamily="NunitoLight"></Label>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+            <Label x:Name="lblStatus" Text="laden..." BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="True"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

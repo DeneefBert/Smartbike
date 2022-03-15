@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="smartbike_G2.Views.AboutPage"
+             xmlns:vm="clr-namespace:smartbike_G2.ViewModels"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasBackButton="false"
+             BackgroundColor="#1D243C"
+             Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="TextColor" Value="{StaticResource MenuBarColor}"/>
+        </Style>
+        <Style TargetType="{x:Type ListView}">
+            <Setter Property="SeparatorColor" Value="Transparent"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <Grid HeightRequest="2000">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.0,1">
+                    <GradientStop Color="#111726" Offset="0"/>
+                    <GradientStop Color="#282D3B" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+
+            <ListView x:Name="lvwOptions" Grid.Row="1" ItemSelected="LvwOptions_ItemSelected" RowHeight="100" VerticalScrollBarVisibility="Never" VerticalOptions="Center">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10"/>
+                                    <RowDefinition Height="80"/>
+                                    <RowDefinition Height="10"/>
+                                </Grid.RowDefinitions>
+                                <Frame Grid.Row="1" HorizontalOptions="Center" BackgroundColor="{StaticResource ThemedColor}" CornerRadius="40" HasShadow="False" Margin="0,0">
+                                    <StackLayout>
+                                        <Grid HeightRequest="80">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="4"/>
+                                                <ColumnDefinition Width="40"/>
+                                                <ColumnDefinition Width="24"/>
+                                                <ColumnDefinition Width="220"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="1" Source="{Binding HomeImage}" HeightRequest="40"/>
+                                            <Label Grid.Column="3" Text="{Binding Title}" FontFamily="NunitoBold" FontSize="32"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5"></ColumnDefinition>
+                        <ColumnDefinition Width="200"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="5"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Howestlogo" Grid.Column="1" HorizontalOptions="Start"/>
+                <ImageButton x:Name="SettingsButton"  Grid.Column="3" HorizontalOptions="End" Source="icon_info.png" Clicked="SettingsButton_Clicked" BackgroundColor="Transparent" HeightRequest="40" />
+                </Grid>
+        </Grid>
+    </StackLayout>
+</ContentPage>
