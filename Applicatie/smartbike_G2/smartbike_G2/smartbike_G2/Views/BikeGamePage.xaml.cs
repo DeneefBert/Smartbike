@@ -62,7 +62,7 @@ namespace smartbike_G2.Views
                 endTime = DateTime.Now;
                 int Time = (int)endTime.Subtract(startTime).TotalMinutes;
 
-                lblEndSpeed.Text = $"{Math.Round(avgSpeed,2)} km/u";
+                lblEndSpeed.Text = $"{Math.Round(avgSpeed,2)}";
                 lblEndCalories.Text = $"{Math.Round(3.5 * 62 * 3.5 / 200 * Time, 2)}"; //MET = 3.5
 
                 finishScreen.IsVisible = true;

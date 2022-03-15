@@ -129,8 +129,8 @@
 
                 <!--eindscherm-->
 
-                <StackLayout Grid.Column="0" Grid.ColumnSpan="5" AbsoluteLayout.LayoutBounds="0, 1, 1, 1" AbsoluteLayout.LayoutFlags="All" x:Name="EndSessionScreen" IsVisible="False" BackgroundColor="#AA000000" >
-                    <Grid VerticalOptions="FillAndExpand">
+                <StackLayout Grid.Column="0" Grid.ColumnSpan="5" x:Name="EndSessionScreen" IsVisible="False" BackgroundColor="#AA000000" >
+                    <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="450"/>

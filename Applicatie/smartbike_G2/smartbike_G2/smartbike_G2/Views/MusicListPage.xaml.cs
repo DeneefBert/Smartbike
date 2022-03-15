@@ -24,7 +24,7 @@ namespace smartbike_G2.Views
 
         private bool KeepRunning = true;
         private bool TurnedOn = false;
-        private int TimeSpent = 0;
+        private float TimeSpent = 0;
 
         public List<float> speed = new List<float>();
         public DateTime startTime;
@@ -60,7 +60,7 @@ namespace smartbike_G2.Views
             }
             else
             {
-                distanceTxt = $"Afstand: {Math.Round(UserRepository.Distance / 1000.0),2} km";
+                distanceTxt = $"Afstand: {Math.Round(UserRepository.Distance / 1000.0,2)} km";
             }
             lblData.Text = $"Snelheid: {Math.Round(SensorRepository.Speed, 1)} km/u\n{distanceTxt}";
             if (SensorRepository.Speed != 0.0)

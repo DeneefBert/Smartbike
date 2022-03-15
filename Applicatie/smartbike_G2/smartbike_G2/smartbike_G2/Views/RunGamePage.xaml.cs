@@ -60,7 +60,7 @@ namespace smartbike_G2.Views
             int Time = (int)endTime.Subtract(startTime).TotalMinutes;
 
             lblLevel.Text = $"Je behaalde level {Level}";
-            lblEndSpeed.Text = $"{Math.Round(avgSpeed, 2)} km/u";
+            lblEndSpeed.Text = $"{Math.Round(avgSpeed, 2)}";
             lblEndCalories.Text = $"{Math.Round(3.5 * 62 * 3.5 / 200 * Time, 2)}"; //MET = 3.5
 
             finishScreen.IsVisible = true;
@@ -77,6 +77,7 @@ namespace smartbike_G2.Views
 
         private bool TimerFunction()
         {
+            speed.Add(SensorRepository.Speed);
             TimeSpent++;
             return IsRunning;
         }

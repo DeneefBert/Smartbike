@@ -56,13 +56,13 @@
                                     </Grid.RowDefinitions>
 
                                     <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="🏆 Goed gedaan! 🏆" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
-                                    <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  x:Name="lblLevel" FontSize="30" HorizontalOptions="Center"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  x:Name="lblLevel" FontSize="24" HorizontalOptions="Center"/>
 
-                                    <Label Grid.Row="3" Grid.Column="0" Text="Gem. snelheid (km/u):" />
-                                    <Label Grid.Row="3" Grid.Column="1" x:Name="lblEndSpeed" Text="..." HorizontalTextAlignment="End"/>
+                                    <Label Grid.Row="3" Grid.Column="0" Text="Gem. snelheid (km/u):" FontSize="20"/>
+                                    <Label Grid.Row="3" Grid.Column="1" x:Name="lblEndSpeed" Text="..." HorizontalTextAlignment="End"  FontSize="20"/>
 
-                                    <Label Grid.Row="4" Grid.Column="0" Text="Aantal calorieën:"/>
-                                    <Label Grid.Row="4" Grid.Column="1" x:Name="lblEndCalories" Text="..." HorizontalTextAlignment="End"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Text="Aantal calorieën:" FontSize="20"/>
+                                    <Label Grid.Row="4" Grid.Column="1" x:Name="lblEndCalories" Text="..." HorizontalTextAlignment="End"  FontSize="20"/>
 
 
                                     <Grid Grid.Row="5" Grid.ColumnSpan="2" ColumnSpacing="16">
